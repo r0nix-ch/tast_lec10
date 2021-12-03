@@ -3,9 +3,16 @@
 using namespace std;
 
 double my_pow(double number, unsigned int degree){
-    double result = number;
-    for(int i = 0; i < degree; i++){
-        result*=number;
+    double result = 1;
+    while(degree) {
+        if (degree % 2 == 0) {
+            degree /= 2;
+            number *= number;
+        }
+        else {
+            degree--;
+            result *= number;
+        }
     }
     return result;
 }
